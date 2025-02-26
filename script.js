@@ -1,5 +1,5 @@
 let userName = "Guest";
-let menuItems = ["Githeri", "Pilau Beef", "Pilau Chicken", "Masala Chips", "Chicken Wings"];
+let menuItems = ["Nyama Choma", "Ugali & Sukuma", "Chapati & Beans", "Tilapia Fry", "Mutura"];
 
 document.getElementById("btnEnterName").addEventListener("click", function () {
     let nameInput = prompt("Please enter your first name:");
@@ -15,9 +15,12 @@ document.getElementById("btnEnterName").addEventListener("click", function () {
 
 document.getElementById("btnViewMenu").addEventListener("click", function () {
     let menuText = "Menu:\n";
+    
     menuItems.forEach((item, index) => {
-        menuText += `${index + 1}. ${item}\n`;
+        menuText += `${index + 1}. ${item}\n`; // Formatting menu list for alert
+        console.log(`${index + 1}. ${item}`);  // Printing to console in numbered format
     });
+
     alert(menuText);
 });
 
@@ -34,6 +37,7 @@ document.getElementById("btnAddDish").addEventListener("click", function () {
     let updatedMenu = "Updated Menu:\n";
     menuItems.forEach((item, index) => {
         updatedMenu += `${index + 1}. ${item}\n`;
+        console.log(`${index + 1}. ${item}`); // Print updated menu to console
     });
 
     alert(updatedMenu);
