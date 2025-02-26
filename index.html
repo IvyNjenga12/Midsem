@@ -4,16 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EatNow Cafe Menu</title>
+    <style>
+        #menuContainer {
+            display: none; /* Menu is hidden by default */
+        }
+    </style>
 </head>
 <body>
     <h1>Welcome to EatNow Cafe</h1>
 
-    <button id="greetButton">Enter Your Name</button>
-    <button id="menuButton">View Menu</button>
-    <button id="addDishButton">Suggest a Dish</button>
+    <button onclick="inputUserDetails()">Enter Your Name</button>
+    <button onclick="viewMenu()">View Menu</button>
+    <button onclick="addDish()">Suggest a Dish</button>
 
-    <h2>Menu</h2>
-    <ul id="menuList"></ul>
+    <div id="menuContainer">
+        <h2>Menu</h2>
+        <ul id="menuList"></ul> <!-- Menu items will be inserted here -->
+    </div>
 
     <script src="script.js"></script>
 </body>
