@@ -8,32 +8,31 @@ document.getElementById("greetButton").onclick = function() {
 };
 
 // Step 3: Display Menu Items in Browser (5 Marks)
-var menuItems = ["Grilled Chicken", "Pasta Carbonara", "Caesar Salad", "Margherita Pizza", "Chocolate Cake"];
+var menuItems = ["Githeri", "Pilau Beef", "Pilau Chicken", "Masala Chips", "Chicken wings"];
 
-function displayMenu() {
+function addMenuItem(item) {
     var menuList = document.getElementById("menuList");
-    menuList.innerHTML = ""; // Clear the existing menu
-    menuItems.forEach(function(item, index) {
-        var listItem = document.createElement("li");
-        listItem.textContent = (index + 1) + ". " + item;
-        menuList.appendChild(listItem);
-    });
+    var listItem = document.createElement("li");
+    listItem.textContent = (menuItems.length) + ". " + item;
+    menuList.appendChild(listItem);
 }
 
-document.getElementById("menuButton").onclick = function() {
-    displayMenu();
-};
+function initializeMenu() {
+    menuItems.forEach(function(item) {
+        addMenuItem(item);
+    });
+}
 
 // Step 4: Adding a New Dish (3 Marks)
 document.getElementById("addDishButton").onclick = function() {
     var newDish = prompt("Suggest a new dish to add to the menu:");
     if (newDish !== null && newDish !== "") {
         menuItems.push(newDish);
-        displayMenu();
+        addMenuItem(newDish);
     } else {
-        console.log("No new dish added. Please enter a valid dish name.");
+        alert("No new dish added. Please enter a valid dish name.");
     }
 };
 
-// Debugging: Ensure the script is loaded
-console.log("Script loaded successfully.");
+// Initial menu display
+initializeMenu();
