@@ -7,13 +7,16 @@ document.getElementById("greetButton").onclick = function() {
     alert("Welcome to EatNow cafe, " + userName + "!");
 };
 
-// Step 3: Display Menu Items in Console (5 Marks)
+// Step 3: Display Menu Items in Browser (5 Marks)
 var menuItems = ["Grilled Chicken", "Pasta Carbonara", "Caesar Salad", "Margherita Pizza", "Chocolate Cake"];
 
 function displayMenu() {
-    console.log("Menu:");
+    var menuList = document.getElementById("menuList");
+    menuList.innerHTML = ""; // Clear the existing menu
     menuItems.forEach(function(item, index) {
-        console.log((index + 1) + ". " + item);
+        var listItem = document.createElement("li");
+        listItem.textContent = (index + 1) + ". " + item;
+        menuList.appendChild(listItem);
     });
 }
 
@@ -31,3 +34,6 @@ document.getElementById("addDishButton").onclick = function() {
         console.log("No new dish added. Please enter a valid dish name.");
     }
 };
+
+// Debugging: Ensure the script is loaded
+console.log("Script loaded successfully.");
