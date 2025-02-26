@@ -1,38 +1,33 @@
-let userName = "Guest"; // Default user name
-let menuItems = ["Grilled Chicken", "Pasta Carbonara", "Caesar Salad", "Margherita Pizza", "Chocolate Cake"];
+// Step 1: Personalized Greeting (3 Marks)
+document.getElementById("greetButton").onclick = function() {
+    var userName = prompt("Please enter your first name:");
+    if (userName === null || userName === "") {
+        userName = "Guest";
+    }
+    alert("Welcome to EatNow cafe, " + userName + "!");
+};
 
-function inputUserDetails() {
-    let nameInput = prompt("Please enter your first name:");
+// Step 3: Display Menu Items in Console (5 Marks)
+var menuItems = ["Grilled Chicken", "Pasta Carbonara", "Caesar Salad", "Margherita Pizza", "Chocolate Cake"];
 
-    // Validate input: If empty, default to "Guest"
-    userName = nameInput && nameInput.trim() !== "" ? nameInput : "Guest";
-
-    // Display welcome message
-    alert(`Welcome to EatNow Cafe, ${userName}!`);
-}
-
-function viewMenu() {
-    let menuContainer = document.getElementById("menuContainer");
-    menuContainer.innerHTML = "<h3>Available Dishes:</h3>"; // Reset and add header
-
-    let menuList = document.createElement("ul"); // Create a list
-
-    menuItems.forEach((item, index) => {
-        let listItem = document.createElement("li");
-        listItem.textContent = `${index + 1}. ${item}`;
-        menuList.appendChild(listItem);
+function displayMenu() {
+    console.log("Menu:");
+    menuItems.forEach(function(item, index) {
+        console.log((index + 1) + ". " + item);
     });
-
-    menuContainer.appendChild(menuList); // Append the menu list to the container
 }
 
-function addDish() {
-    let newDish = prompt("Suggest a new dish to add to the menu:");
+document.getElementById("menuButton").onclick = function() {
+    displayMenu();
+};
 
-    if (newDish && newDish.trim() !== "") {
+// Step 4: Adding a New Dish (3 Marks)
+document.getElementById("addDishButton").onclick = function() {
+    var newDish = prompt("Suggest a new dish to add to the menu:");
+    if (newDish !== null && newDish !== "") {
         menuItems.push(newDish);
-        viewMenu(); // Update the menu display
+        displayMenu();
     } else {
         console.log("No new dish added. Please enter a valid dish name.");
     }
-}
+};
