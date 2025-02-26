@@ -12,10 +12,13 @@ function inputUserDetails() {
 }
 
 function viewMenu() {
-    console.clear();
-    console.log("Menu:");
+    let menuList = document.getElementById("menuList");
+    menuList.innerHTML = ""; // Clear previous menu items
+
     menuItems.forEach((item, index) => {
-        console.log(`${index + 1}. ${item}`);
+        let listItem = document.createElement("li");
+        listItem.textContent = `${index + 1}. ${item}`;
+        menuList.appendChild(listItem);
     });
 }
 
@@ -24,11 +27,7 @@ function addDish() {
 
     if (newDish && newDish.trim() !== "") {
         menuItems.push(newDish);
-        console.clear();
-        console.log("Updated Menu:");
-        menuItems.forEach((item, index) => {
-            console.log(`${index + 1}. ${item}`);
-        });
+        viewMenu(); // Update the menu display
     } else {
         console.log("No new dish added. Please enter a valid dish name.");
     }
