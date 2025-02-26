@@ -12,14 +12,18 @@ function inputUserDetails() {
 }
 
 function viewMenu() {
-    let menuList = document.getElementById("menuList");
-    menuList.innerHTML = ""; // Clear previous menu items
+    let menuContainer = document.getElementById("menuContainer");
+    menuContainer.innerHTML = "<h3>Available Dishes:</h3>"; // Reset and add header
+
+    let menuList = document.createElement("ul"); // Create a list
 
     menuItems.forEach((item, index) => {
         let listItem = document.createElement("li");
         listItem.textContent = `${index + 1}. ${item}`;
         menuList.appendChild(listItem);
     });
+
+    menuContainer.appendChild(menuList); // Append the menu list to the container
 }
 
 function addDish() {
